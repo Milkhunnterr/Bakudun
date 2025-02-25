@@ -6,6 +6,8 @@ import com.almasb.fxgl.app.GameApplication;
 import com.almasb.fxgl.app.GameSettings;
 import com.almasb.fxgl.dsl.FXGL;
 import com.almasb.fxgl.entity.Entity;
+import static com.almasb.fxgl.dsl.FXGL.*;
+
 
 import javafx.scene.input.KeyCode;
 import javafx.scene.paint.Color;
@@ -31,8 +33,10 @@ public class App extends GameApplication {
     protected void initGame() {
         player = FXGL.entityBuilder()
                 .at(300, 300)
-                .view("ship.png")
+                .view(texture("ship.png"))
                 .buildAndAttach();
+        System.out.println(getAssetLoader().loadTexture("ship.png"));
+
     }
 
     @Override
