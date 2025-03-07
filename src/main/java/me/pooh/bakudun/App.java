@@ -23,17 +23,18 @@ public class App extends GameApplication {
 
     @Override
     protected void initSettings(GameSettings settings) {
-        settings.setWidth(1250);
-        settings.setHeight(600);
+        settings.setWidth(640);
+        settings.setHeight(480);
         settings.setTitle("BomberMan");
         settings.setVersion("0.1");
+        settings.setDeveloperMenuEnabled(true);
     }
 
     @Override
     protected void initGame() {
         player = FXGL.entityBuilder()
                 .at(300, 300)
-                .view(texture("ship.png"))
+                .view(texture("bomb3_resized.png"))
                 .buildAndAttach();
         System.out.println(getAssetLoader().loadTexture("ship.png"));
 
