@@ -23,8 +23,8 @@ public class App extends GameApplication {
 
     @Override
     protected void initSettings(GameSettings settings) {
-        settings.setWidth(640);
-        settings.setHeight(480);
+        settings.setWidth(1200);
+        settings.setHeight(750);
         settings.setTitle("BomberMan");
         settings.setVersion("0.1");
         settings.setDeveloperMenuEnabled(true);
@@ -42,7 +42,7 @@ public class App extends GameApplication {
 
     @Override
     protected void initInput() {
-        FXGL.onKey(KeyCode.A, () -> {
+        FXGL.onKey(KeyCode.LEFT, () -> {
             // ตรวจสอบว่า player จะไม่เคลื่อนที่ไปนอกขอบซ้าย
             if (player.getX() > 0) {
                 player.translateX(-5);
@@ -50,7 +50,7 @@ public class App extends GameApplication {
             }
         });
 
-        FXGL.onKey(KeyCode.D, () -> {
+        FXGL.onKey(KeyCode.RIGHT, () -> {
             // ตรวจสอบว่า player จะไม่เคลื่อนที่ไปนอกขอบขวา
             if (player.getX() + player.getWidth() < FXGL.getAppWidth()) {
                 player.translateX(5);
@@ -58,7 +58,7 @@ public class App extends GameApplication {
             }
         });
 
-        FXGL.onKey(KeyCode.W, () -> {
+        FXGL.onKey(KeyCode.UP, () -> {
             // ตรวจสอบว่า player จะไม่เคลื่อนที่ไปนอกขอบบน
             if (player.getY() > 0) {
                 player.translateY(-5);
@@ -66,7 +66,7 @@ public class App extends GameApplication {
             }
         });
 
-        FXGL.onKey(KeyCode.S, () -> {
+        FXGL.onKey(KeyCode.DOWN, () -> {
             // ตรวจสอบว่า player จะไม่เคลื่อนที่ไปนอกขอบล่าง
             if (player.getY() + player.getHeight() < FXGL.getAppHeight()) {
                 player.translateY(5);
