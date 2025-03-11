@@ -29,8 +29,8 @@ public class App extends GameApplication {
 
     @Override
     protected void initSettings(GameSettings settings) {
-        settings.setWidth(1200);
-        settings.setHeight(750);
+        settings.setWidth(640);
+        settings.setHeight(480);
         settings.setTitle("BomberMan");
         settings.setVersion("0.1");
 
