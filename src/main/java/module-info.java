@@ -6,8 +6,8 @@ open module me.pooh.bakudun {
 
 
     exports me.pooh.bakudun;
-    exports me.pooh.bakudun.Entity;
+    exports me.pooh.bakudun.Entitynum;
 
-    exports me.pooh.bakudun.Scene;
+    exports me.pooh.bakudun.Factory;
 
 }

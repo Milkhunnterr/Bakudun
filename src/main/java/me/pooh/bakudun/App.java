@@ -6,16 +6,22 @@ import com.almasb.fxgl.app.GameApplication;
 import com.almasb.fxgl.app.GameSettings;
 import com.almasb.fxgl.dsl.FXGL;
 import com.almasb.fxgl.entity.Entity;
-import static com.almasb.fxgl.dsl.FXGL.*;
+import com.almasb.fxgl.entity.level.Level;
+import com.almasb.fxgl.entity.level.tiled.TMXLevelLoader;
 
+
+import static com.almasb.fxgl.dsl.FXGL.*;
 
 import javafx.scene.input.KeyCode;
 import javafx.scene.paint.Color;
-import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Text;
+import me.pooh.bakudun.Factory.Scene;
+
+
 
 public class App extends GameApplication {
     public Entity player;
+    public Level map;
 
     public static void main(String[] args) {
         launch(args);
@@ -27,18 +33,30 @@ public class App extends GameApplication {
         settings.setHeight(480);
         settings.setTitle("BomberMan");
         settings.setVersion("0.1");
-        settings.setDeveloperMenuEnabled(true);
+
+    }
+
+    @Override
+    protected void initGameVars(Map<String, Object> vars) {
+
+        vars.put("map0", "Map0-0.tmx");
     }
 
     @Override
     protected void initGame() {
+        getGameScene().setBackgroundColor(Color.BLACK);
+        FXGL.getGameWorld().addEntityFactory(new Scene());
+
+        map = FXGL.getAssetLoader().loadLevel(FXGL.gets("map0"), new TMXLevelLoader());
+        FXGL.setLevelFromMap("Map0-0.tmx");
+
         player = FXGL.entityBuilder()
                 .at(300, 300)
                 .view(texture("bomb3_resized.png"))
                 .buildAndAttach();
-        System.out.println(getAssetLoader().loadTexture("ship.png"));
-
     }
+
+
 
     @Override
     protected void initInput() {
@@ -76,14 +94,11 @@ public class App extends GameApplication {
     }
 
 
-    @Override
-    protected void initGameVars(Map<String, Object> vars) {
-        vars.put("pixelsMoved", 0);
-    }
+
 
     @Override
     protected void initUI() {
-        Text textLabel = new Text("Moved: ");
+     /*   Text textLabel = new Text("Moved: ");
         Text textPixels = new Text();
 
         textLabel.setTranslateX(50);
@@ -96,6 +111,6 @@ public class App extends GameApplication {
 
         // Add the text elements to the scene graph
         FXGL.getGameScene().addUINode(textLabel);
-        FXGL.getGameScene().addUINode(textPixels);
+        FXGL.getGameScene().addUINode(textPixels);*/
     }
 }
