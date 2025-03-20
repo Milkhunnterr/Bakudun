@@ -12,10 +12,18 @@ import com.almasb.fxgl.entity.level.tiled.TMXLevelLoader;
 
 import static com.almasb.fxgl.dsl.FXGL.*;
 
+import com.almasb.fxgl.input.UserAction;
+import com.almasb.fxgl.physics.CollisionHandler;
+import com.almasb.fxgl.physics.PhysicsWorld;
 import javafx.scene.input.KeyCode;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
+import me.pooh.bakudun.Component.ControllerPlayer;
+import me.pooh.bakudun.Entitynum.MapType;
+import me.pooh.bakudun.Entitynum.Player;
 import me.pooh.bakudun.Factory.Scene;
+import me.pooh.bakudun.Factory.Character;
+
 
 
 
@@ -33,7 +41,13 @@ public class App extends GameApplication {
         settings.setHeight(480);
         settings.setTitle("BomberMan");
         settings.setVersion("0.1");
+        settings.setDeveloperMenuEnabled(true);
+    }
 
+    @Override
+    protected void initPhysics() {
+        PhysicsWorld gamephysic = FXGL.getPhysicsWorld();
+        gamephysic.setGravity(0,0 );
     }
 
     @Override
@@ -46,54 +60,76 @@ public class App extends GameApplication {
     protected void initGame() {
         getGameScene().setBackgroundColor(Color.BLACK);
         FXGL.getGameWorld().addEntityFactory(new Scene());
+        FXGL.getGameWorld().addEntityFactory(new Character());
 
-        map = FXGL.getAssetLoader().loadLevel(FXGL.gets("map0"), new TMXLevelLoader());
-        FXGL.setLevelFromMap("Map0-0.tmx");
+       // spawn("map",0,0);
+        //map = FXGL.getAssetLoader().loadLevel(FXGL.gets("map0"), new TMXLevelLoader());
+       // FXGL.setLevelFromMap("Map0-0.tmx");
+        spawn("spawn point",100 ,100);
+        player = FXGL.getGameWorld().getEntitiesByType(Player.Jim).get(0);
 
-        player = FXGL.entityBuilder()
-                .at(300, 300)
-                .view(texture("bomb3_resized.png"))
-                .buildAndAttach();
+        /*FXGL.getPhysicsWorld().addCollisionHandler(new CollisionHandler(Player.Jim, MapType.wall) {
+            @Override
+            protected void onCollisionBegin(Entity player, Entity wall) {
+                System.out.println("Player touched wall");
+            }
+        });*/
     }
 
 
 
     @Override
     protected void initInput() {
-        FXGL.onKey(KeyCode.LEFT, () -> {
-            // ตรวจสอบว่า player จะไม่เคลื่อนที่ไปนอกขอบซ้าย
-            if (player.getX() > 0) {
-                player.translateX(-5);
-                FXGL.inc("pixelsMoved", 5);
-            }
-        });
 
-        FXGL.onKey(KeyCode.RIGHT, () -> {
-            // ตรวจสอบว่า player จะไม่เคลื่อนที่ไปนอกขอบขวา
-            if (player.getX() + player.getWidth() < FXGL.getAppWidth()) {
-                player.translateX(5);
-                FXGL.inc("pixelsMoved", 5);
+        FXGL.getInput().addAction(new UserAction("Right") {
+            @Override
+            protected void onAction() {
+                player.getComponent(ControllerPlayer.class).moveRight();
             }
-        });
 
-        FXGL.onKey(KeyCode.UP, () -> {
-            // ตรวจสอบว่า player จะไม่เคลื่อนที่ไปนอกขอบบน
-            if (player.getY() > 0) {
-                player.translateY(-5);
-                FXGL.inc("pixelsMoved", 5);
+            @Override
+            protected void onActionEnd() {
+                player.getComponent(ControllerPlayer.class).stop();
             }
-        });
+        }, KeyCode.D);
 
-        FXGL.onKey(KeyCode.DOWN, () -> {
-            // ตรวจสอบว่า player จะไม่เคลื่อนที่ไปนอกขอบล่าง
-            if (player.getY() + player.getHeight() < FXGL.getAppHeight()) {
-                player.translateY(5);
-                FXGL.inc("pixelsMoved", 5);
+        FXGL.getInput().addAction(new UserAction("Left") {
+            @Override
+            protected void onAction() {
+                player.getComponent(ControllerPlayer.class).moveLeft();
             }
-        });
+
+            @Override
+            protected void onActionEnd() {
+                player.getComponent(ControllerPlayer.class).stop();
+            }
+        }, KeyCode.A);
+
+        FXGL.getInput().addAction(new UserAction("Up") {
+            @Override
+            protected void onAction() {
+                player.getComponent(ControllerPlayer.class).moveUp();
+            }
+
+            @Override
+            protected void onActionEnd() {
+                player.getComponent(ControllerPlayer.class).stop();
+            }
+        }, KeyCode.W);
+
+        FXGL.getInput().addAction(new UserAction("Down") {
+            @Override
+            protected void onAction() {
+                player.getComponent(ControllerPlayer.class).moveDown();
+            }
+
+            @Override
+            protected void onActionEnd() {
+                player.getComponent(ControllerPlayer.class).stop();
+            }
+        }, KeyCode.S);
+
     }
-
-
 
 
     @Override

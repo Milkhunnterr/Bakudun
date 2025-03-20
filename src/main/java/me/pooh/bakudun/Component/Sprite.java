@@ -1,4 +1,4 @@
-package me.pooh.bakudun.Entity;
+package me.pooh.bakudun.Component;
 
 import com.almasb.fxgl.entity.Entity;
 import com.almasb.fxgl.entity.component.Component;
@@ -8,6 +8,7 @@ public abstract class Sprite extends Component {
     protected int hp;  // พลังชีวิต
 
     public Sprite(int hp) {
+
         this.hp = hp;
     }
 
@@ -17,6 +18,7 @@ public abstract class Sprite extends Component {
     }
 
     public int getHp() {
+
         return hp;
     }
 

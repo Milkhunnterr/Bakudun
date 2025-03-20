@@ -1,6 +1,5 @@
-package me.pooh.bakudun.Entity;
+package me.pooh.bakudun.Component;
 
-import com.almasb.fxgl.entity.Entity;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 import static com.almasb.fxgl.dsl.FXGL.*;
