@@ -19,10 +19,8 @@ public class ControllerPlayer extends Component{
 
     @Override
     public void onUpdate(double tpf) {
-
         physics.setVelocityX(velocityX);
         physics.setVelocityY(velocityY);
-
 
         if (FXGLMath.abs(velocityX) < 1) {
             velocityX = 0;
@@ -32,10 +30,17 @@ public class ControllerPlayer extends Component{
             velocityY = 0;
         }
 
+        // ✅ จำกัดการเคลื่อนที่ไม่ให้หลุดออกจากหน้าจอ
+        float screenWidth = (float) FXGL.getAppWidth();
+        float screenHeight = (float) FXGL.getAppHeight();
 
+        float newX = FXGLMath.clamp((float) entity.getX(), 0f, screenWidth - (float) entity.getWidth());
+        float newY = FXGLMath.clamp((float) entity.getY(), 0f, screenHeight - (float) entity.getHeight());
 
+        entity.setPosition(newX, newY);
 
     }
+
 
     public void moveLeft() {
 

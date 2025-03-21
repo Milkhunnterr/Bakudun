@@ -25,8 +25,9 @@ public class Scene implements EntityFactory {
                 .type(MapType.wall)
                 .at(data.getX(), data.getY())
                 .bbox(new HitBox(BoundingShape.box(data.<Integer>get("width"), data.<Integer>get("height"))))
-                .with(new PhysicsComponent())
+                .with(physics) // ใช้อันที่สร้างไว้
                 .with(new CollidableComponent(true))
                 .build();
+
     }
 }
