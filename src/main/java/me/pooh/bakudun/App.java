@@ -13,18 +13,14 @@ import com.almasb.fxgl.entity.level.tiled.TMXLevelLoader;
 import static com.almasb.fxgl.dsl.FXGL.*;
 
 import com.almasb.fxgl.input.UserAction;
-import com.almasb.fxgl.physics.CollisionHandler;
 import com.almasb.fxgl.physics.PhysicsWorld;
 import javafx.scene.input.KeyCode;
 import javafx.scene.paint.Color;
-import javafx.scene.text.Text;
 import me.pooh.bakudun.Component.ControllerPlayer;
-import me.pooh.bakudun.Entitynum.MapType;
-import me.pooh.bakudun.Entitynum.Player;
-import me.pooh.bakudun.Factory.Scene;
-import me.pooh.bakudun.Factory.Character;
-
-
+import me.pooh.bakudun.EntityFactory.Bombba;
+import me.pooh.bakudun.EntityFactory.Scemap;
+import me.pooh.bakudun.EntityFactory.Character;
+import me.pooh.bakudun.EntityType.Player;
 
 
 public class App extends GameApplication {
@@ -53,20 +49,21 @@ public class App extends GameApplication {
     @Override
     protected void initGameVars(Map<String, Object> vars) {
 
-        vars.put("map0", "Map0-0.tmx");
+        vars.put("map0", "Map.tmx");
     }
 
     @Override
     protected void initGame() {
         getGameScene().setBackgroundColor(Color.BLACK);
-        FXGL.getGameWorld().addEntityFactory(new Scene());
+        FXGL.getGameWorld().addEntityFactory(new Scemap());
         FXGL.getGameWorld().addEntityFactory(new Character());
+        FXGL.getGameWorld().addEntityFactory(new Bombba());
 
-       // spawn("map",0,0);
-        //map = FXGL.getAssetLoader().loadLevel(FXGL.gets("map0"), new TMXLevelLoader());
-       // FXGL.setLevelFromMap("Map0-0.tmx");
-        spawn("spawn point",100 ,100);
-        player = FXGL.getGameWorld().getEntitiesByType(Player.Jim).get(0);
+
+        map = FXGL.getAssetLoader().loadLevel(FXGL.gets("map0"), new TMXLevelLoader());
+        FXGL.setLevelFromMap("Map.tmx");
+
+        player = FXGL.getGameWorld().getEntitiesByType(Player.Jimmu).get(0);
 
         /*FXGL.getPhysicsWorld().addCollisionHandler(new CollisionHandler(Player.Jim, MapType.wall) {
             @Override

@@ -1,8 +1,8 @@
-package me.pooh.bakudun.Factory;
+package me.pooh.bakudun.EntityFactory;
 
 import me.pooh.bakudun.Component.Animation;
 import me.pooh.bakudun.Component.ControllerPlayer;
-import me.pooh.bakudun.Entitynum.Player;
+import me.pooh.bakudun.EntityType.Player;
 
 import com.almasb.fxgl.dsl.FXGL;
 import com.almasb.fxgl.entity.Entity;
@@ -16,18 +16,18 @@ import com.almasb.fxgl.physics.PhysicsComponent;
 import com.almasb.fxgl.physics.box2d.dynamics.BodyType;
 
 public class Character implements EntityFactory {
-    @Spawns("spawn point")
+    @Spawns("Jimmu")
     public Entity newPlayerCharacter(SpawnData data) {
         PhysicsComponent physics = new PhysicsComponent(); // Create new one each time
         physics.setBodyType(BodyType.DYNAMIC);
 
         return FXGL.entityBuilder(data)
-                .type(Player.Jim)
-                .bbox(new HitBox(BoundingShape.box(8, 8)))
+                .type(Player.Jimmu)
+                .bbox(new HitBox(BoundingShape.box(25, 25)))
                 .with(physics)
                 .with(new CollidableComponent(true))
                 .with(new ControllerPlayer())
-                .with(new Animation("Jim.png"))
+                .with(new Animation("Jim1.png"))
                 .build();
     }
 

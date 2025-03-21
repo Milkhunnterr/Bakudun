@@ -2,11 +2,13 @@ package me.pooh.bakudun.Component;
 
 import com.almasb.fxgl.core.math.FXGLMath;
 import com.almasb.fxgl.dsl.FXGL;
+import com.almasb.fxgl.input.UserAction;
 import com.almasb.fxgl.physics.PhysicsComponent;
 import com.almasb.fxgl.texture.AnimationChannel;
 import com.almasb.fxgl.texture.AnimatedTexture;
 import com.almasb.fxgl.entity.component.Component;
 import javafx.geometry.Point2D;
+import javafx.scene.input.KeyCode;
 import javafx.util.Duration;
 import javafx.scene.image.Image;
 
@@ -17,12 +19,24 @@ public class ControllerPlayer extends Component{
     private double velocityY ;
     private Animation animation;
 
+  /*  @Override
+    public void onAdded() {
+        FXGL.getInput().addAction(new UserAction("Place Bomb") {
+            @Override
+            protected void onActionBegin() {
+                placeBomb();
+            }
+        }, KeyCode.E);
+    }
+
+    private void placeBomb() {
+        FXGL.spawn("Bomb", entity.getPosition()); // วางระเบิดที่ตำแหน่งของผู้เล่น
+    }*/
+
     @Override
     public void onUpdate(double tpf) {
-
         physics.setVelocityX(velocityX);
         physics.setVelocityY(velocityY);
-
 
         if (FXGLMath.abs(velocityX) < 1) {
             velocityX = 0;
@@ -32,10 +46,17 @@ public class ControllerPlayer extends Component{
             velocityY = 0;
         }
 
+        // ✅ จำกัดการเคลื่อนที่ไม่ให้หลุดออกจากหน้าจอ
+        float screenWidth = (float) FXGL.getAppWidth();
+        float screenHeight = (float) FXGL.getAppHeight();
 
+        float newX = FXGLMath.clamp((float) entity.getX(), 0f, screenWidth - (float) entity.getWidth());
+        float newY = FXGLMath.clamp((float) entity.getY(), 0f, screenHeight - (float) entity.getHeight());
 
+        entity.setPosition(newX, newY);
 
     }
+
 
     public void moveLeft() {
 
@@ -105,7 +126,7 @@ public class ControllerPlayer extends Component{
         double height = entity.getHeight();
 
 
-        animation = new Animation("Jim.png");
+        animation = new Animation("Jim1.png");
         entity.getViewComponent().addChild(animation.getTexture());
 
         physics = entity.getComponent(PhysicsComponent.class);

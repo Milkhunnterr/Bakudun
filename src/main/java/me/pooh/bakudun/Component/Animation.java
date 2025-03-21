@@ -21,14 +21,9 @@ public class Animation extends Component {
     private final AnimationChannel idleUp;
     private final AnimationChannel idleLeft;
 
-
-
     public Animation (String nameFile) {
 
-
-
         Image image = FXGL.image(nameFile);
-
 
         int columns = 4;
         int rows = 4;
@@ -36,31 +31,30 @@ public class Animation extends Component {
         int frameW = (int) image.getWidth() / columns;
         int frameH = (int) image.getHeight() / rows;
 
+        // คำนวณ index แบบ Column-Major Order
+        int leftStart  = (1 * columns) + 2;  // Row 1, Column 2
+        int leftEnd    = (1 * columns) + 3;  // Row 1, Column 3
 
-        // คำนวณ index แบบ Row-Major Order
-        int leftStart  = (2 * rows) + 1;  // Column 2, Row 1
-        int leftEnd    = (3 * rows) + 1;  // Column 3, Row 1
+        int rightStart = (0 * columns) + 2;  // Row 0, Column 2
+        int rightEnd   = (0 * columns) + 3;  // Row 0, Column 3
 
-        int rightStart = (2 * rows) + 0;  // Column 2, Row 0
-        int rightEnd   = (3 * rows) + 0;  // Column 3, Row 0
+        int upStart    = (3 * columns) + 2;  // Row 3, Column 2
+        int upEnd      = (3 * columns) + 3;  // Row 3, Column 3
 
-        int upStart    = (2 * rows) + 3;  // Column 2, Row 3
-        int upEnd      = (3 * rows) + 3;  // Column 3, Row 3
+        int downStart  = (2 * columns) + 2;  // Row 2, Column 2
+        int downEnd    = (2 * columns) + 3;  // Row 2, Column 3
 
-        int downStart  = (2 * rows) + 2;  // Column 2, Row 2
-        int downEnd    = (3 * rows) + 2;  // Column 3, Row 2
+        int Down      = (2 * columns) + 0;  // Row 2, Column 0
+        int DownEnd   = (2 * columns) + 1;  // Row 2, Column 1
 
-        int Down      = (0 * rows) + 2;  // Column 0, Row 2
-        int DownEnd   = (1 * rows) + 2;  // Column 1, Row 2
+        int Up        = (3 * columns) + 0;  // Row 3, Column 0
+        int UpEnd     = (3 * columns) + 1;  // Row 3, Column 1
 
-        int Up        = (0 * rows) + 3;  // Column 0, Row 3
-        int UpEnd     = (1 * rows) + 3;  // Column 1, Row 3
+        int Right     = (0 * columns) + 0;  // Row 0, Column 0
+        int RightEnd  = (0 * columns) + 1;  // Row 0, Column 1
 
-        int Right     = (0 * rows) + 0;  // Column 0, Row 0
-        int RightEnd  = (1 * rows) + 0;  // Column 1, Row 0
-
-        int Left      = (0 * rows) + 1;  // Column 0, Row 1
-        int LeftEnd   = (1 * rows) + 1;  // Column 1, Row 1
+        int Left      = (1 * columns) + 0;  // Row 1, Column 0
+        int LeftEnd   = (1 * columns) + 1;  // Row 1, Column 1
 
         left = new AnimationChannel(image, columns, frameW, frameH, Duration.seconds(0.75), leftStart, leftEnd);
         right = new AnimationChannel(image, columns, frameW, frameH, Duration.seconds(0.75), rightStart, rightEnd);
@@ -72,11 +66,8 @@ public class Animation extends Component {
         idleRight = new AnimationChannel(image, columns, frameW, frameH, Duration.seconds(0.75), Right, Right);
         idleLeft = new AnimationChannel(image, columns, frameW, frameH, Duration.seconds(0.75), Left, Left);
 
-
         texture = new AnimatedTexture(idleDown);
         texture.loopAnimationChannel(idleDown);
-
-
     }
 
     public AnimatedTexture getTexture() {
@@ -115,10 +106,8 @@ public class Animation extends Component {
         currentAnimationState = "walkRight";
     }
 
-    public String checkwalk(){
-
+    public String checkwalk() {
         return currentAnimationState;
-
     }
 
     public void idleDown() {
@@ -135,20 +124,4 @@ public class Animation extends Component {
     public void idleLeft() {
         texture.loopAnimationChannel(idleLeft);
     }
-
-
-
-    // public void attack() {
-    //     texture.playAnimationChannel(animAttack);
-    // }
-
-    // public void stop() {
-    //     texture.loopAnimationChannel(animIdle);
-    // }
-
-    //  public void respawn() {
-    //     entity.removeFromWorld();
-    //     FXGL.spawn("Player", new SpawnData(x, y));
-    // }
-
 }

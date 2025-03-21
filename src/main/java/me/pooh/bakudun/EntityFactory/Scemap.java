@@ -1,4 +1,4 @@
-package me.pooh.bakudun.Factory;
+package me.pooh.bakudun.EntityFactory;
 
 import com.almasb.fxgl.dsl.FXGL;
 import com.almasb.fxgl.entity.Entity;
@@ -10,23 +10,33 @@ import com.almasb.fxgl.physics.BoundingShape;
 import com.almasb.fxgl.physics.HitBox;
 import com.almasb.fxgl.physics.PhysicsComponent;
 import com.almasb.fxgl.physics.box2d.dynamics.BodyType;
+import me.pooh.bakudun.EntityType.Scene;
 
-import me.pooh.bakudun.Entitynum.MapType;
+public class Scemap implements EntityFactory {
 
-public class Scene implements EntityFactory {
-
-    @Spawns("map")
+    @Spawns("wall")
     public Entity spawnWall(SpawnData data) {
-        // Create a fresh physics component for this entity
         PhysicsComponent physics = new PhysicsComponent();
         physics.setBodyType(BodyType.STATIC);
 
         return FXGL.entityBuilder(data)
-                .type(MapType.wall)
+                .type(Scene.wall)
                 .at(data.getX(), data.getY())
                 .bbox(new HitBox(BoundingShape.box(data.<Integer>get("width"), data.<Integer>get("height"))))
-                .with(new PhysicsComponent())
+                .with(physics) //
+                .with(new CollidableComponent(true))
+                .build();
+
+    }
+
+    @Spawns("WALL")
+    public Entity newWall(SpawnData data) {
+        return FXGL.entityBuilder(data)
+                .type(Scene.WALL)
+                .bbox(new HitBox(BoundingShape.box(data.<Double>get("width"), data.<Double>get("height"))))
                 .with(new CollidableComponent(true))
                 .build();
     }
+
+
 }
