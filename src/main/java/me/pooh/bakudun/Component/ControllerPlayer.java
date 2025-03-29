@@ -19,19 +19,24 @@ public class ControllerPlayer extends Component{
     private double velocityY ;
     private Animation animation;
 
-  /*  @Override
+    @Override
     public void onAdded() {
-        FXGL.getInput().addAction(new UserAction("Place Bomb") {
-            @Override
-            protected void onActionBegin() {
-                placeBomb();
-            }
-        }, KeyCode.E);
+        // การตั้งค่า Animation และ Physics
+        double width = entity.getWidth();
+        double height = entity.getHeight();
+
+        animation = new Animation("Jim1.png");
+        entity.getViewComponent().addChild(animation.getTexture());
+
+        physics = entity.getComponent(PhysicsComponent.class);
+
+        entity.getTransformComponent().setScaleOrigin(new Point2D(width / 2, height / 2));
     }
 
-    private void placeBomb() {
-        FXGL.spawn("Bomb", entity.getPosition()); // วางระเบิดที่ตำแหน่งของผู้เล่น
-    }*/
+    public void placeBomb() {
+        Point2D bombPosition = entity.getCenter().subtract(16, 16); // ปรับตำแหน่งให้ตรงกลาง (สมมติระเบิดมีขนาด 32x32)
+        FXGL.spawn("Bomb", bombPosition);
+    }
 
     @Override
     public void onUpdate(double tpf) {
@@ -113,28 +118,6 @@ public class ControllerPlayer extends Component{
             animation.idleDown();
         }
     }
-
-
-
-
-
-
-    @Override
-    public void onAdded() {
-
-        double width = entity.getWidth();
-        double height = entity.getHeight();
-
-
-        animation = new Animation("Jim1.png");
-        entity.getViewComponent().addChild(animation.getTexture());
-
-        physics = entity.getComponent(PhysicsComponent.class);
-
-        entity.getTransformComponent().setScaleOrigin(new Point2D(width / 2, height / 2));
-
-    }
-
 
 
 }

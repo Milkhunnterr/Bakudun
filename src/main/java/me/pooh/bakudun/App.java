@@ -59,18 +59,11 @@ public class App extends GameApplication {
         FXGL.getGameWorld().addEntityFactory(new Character());
         FXGL.getGameWorld().addEntityFactory(new Bombba());
 
-
         map = FXGL.getAssetLoader().loadLevel(FXGL.gets("map0"), new TMXLevelLoader());
         FXGL.setLevelFromMap("Map.tmx");
 
-        player = FXGL.getGameWorld().getEntitiesByType(Player.Jimmu).get(0);
+        player = FXGL.getGameWorld().getEntitiesByType(Player.Jimmu).getFirst();
 
-        /*FXGL.getPhysicsWorld().addCollisionHandler(new CollisionHandler(Player.Jim, MapType.wall) {
-            @Override
-            protected void onCollisionBegin(Entity player, Entity wall) {
-                System.out.println("Player touched wall");
-            }
-        });*/
     }
 
 
@@ -125,6 +118,13 @@ public class App extends GameApplication {
                 player.getComponent(ControllerPlayer.class).stop();
             }
         }, KeyCode.S);
+
+        FXGL.getInput().addAction(new UserAction("Place Bomb") {
+            @Override
+            protected void onActionBegin() {
+                player.getComponent(ControllerPlayer.class).placeBomb();
+            }
+        }, KeyCode.E);
 
     }
 

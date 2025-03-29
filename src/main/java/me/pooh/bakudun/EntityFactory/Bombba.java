@@ -8,11 +8,12 @@ import com.almasb.fxgl.entity.Spawns;
 import com.almasb.fxgl.entity.components.CollidableComponent;
 import com.almasb.fxgl.physics.BoundingShape;
 import com.almasb.fxgl.physics.HitBox;
+import me.pooh.bakudun.Component.BombComponent;
 import me.pooh.bakudun.EntityType.Bomb;
 
 public class Bombba implements EntityFactory {
 
-   /* @Spawns("Bomb")
+    @Spawns("Bomb")
     public Entity newBomb(SpawnData data) {
         return FXGL.entityBuilder(data)
                 .type(Bomb.bomba)
@@ -20,5 +21,5 @@ public class Bombba implements EntityFactory {
                 .with(new CollidableComponent(true))
                 .with(new BombComponent()) // เพิ่มคอมโพเนนต์สำหรับการทำงานของระเบิด
                 .build();
-    }*/
+    }
 }
