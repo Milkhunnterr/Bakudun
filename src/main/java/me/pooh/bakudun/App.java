@@ -63,7 +63,7 @@ public class App extends GameApplication {
         map = FXGL.getAssetLoader().loadLevel(FXGL.gets("map0"), new TMXLevelLoader());
         FXGL.setLevelFromMap("Map.tmx");
 
-        player = FXGL.getGameWorld().getEntitiesByType(Player.Jimmu).get(0);
+        player = FXGL.getGameWorld().getEntitiesByType(Player.Jimmu).getFirst();
 
         /*FXGL.getPhysicsWorld().addCollisionHandler(new CollisionHandler(Player.Jim, MapType.wall) {
             @Override
