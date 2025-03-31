@@ -18,16 +18,16 @@ import com.almasb.fxgl.physics.box2d.dynamics.BodyType;
 public class Character implements EntityFactory {
     @Spawns("Jimmu")
     public Entity newPlayerCharacter(SpawnData data) {
-        PhysicsComponent physics = new PhysicsComponent(); // Create new one each time
+        PhysicsComponent physics = new PhysicsComponent();
         physics.setBodyType(BodyType.DYNAMIC);
 
         return FXGL.entityBuilder(data)
                 .type(Player.Jimmu)
-                .bbox(new HitBox(BoundingShape.box(32, 32)))
+                .bbox(new HitBox(BoundingShape.box(23, 23)))
                 .with(physics)
                 .with(new CollidableComponent(true))
                 .with(new ControllerPlayer())
-                .with(new Animation("Jim1.png"))
+                .with(new Animation("Jim2.png"))
                 .build();
     }
 

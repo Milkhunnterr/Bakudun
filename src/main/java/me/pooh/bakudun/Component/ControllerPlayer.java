@@ -12,12 +12,15 @@ import javafx.scene.input.KeyCode;
 import javafx.util.Duration;
 import javafx.scene.image.Image;
 
-public class ControllerPlayer extends Component{
+public class ControllerPlayer extends Component {
 
     private PhysicsComponent physics;
-    private double velocityX ;
-    private double velocityY ;
+    private final double SPEED = 150; // กำหนดความเร็วคงที่
+    private double velocityX = 0;
+    private double velocityY = 0;
     private Animation animation;
+    private static int bombCount = 0; // ตัวแปรนับจำนวนระเบิดในแมพ
+    private static final int MAX_BOMBS = 3; // จำนวนระเบิดสูงสุดที่อนุญาต
 
     @Override
     public void onAdded() {
@@ -25,7 +28,7 @@ public class ControllerPlayer extends Component{
         double width = entity.getWidth();
         double height = entity.getHeight();
 
-        animation = new Animation("Jim1.png");
+        animation = new Animation("Jim2.png");
         entity.getViewComponent().addChild(animation.getTexture());
 
         physics = entity.getComponent(PhysicsComponent.class);
@@ -34,8 +37,12 @@ public class ControllerPlayer extends Component{
     }
 
     public void placeBomb() {
-        Point2D bombPosition = entity.getCenter().subtract(16, 16); // ปรับตำแหน่งให้ตรงกลาง (สมมติระเบิดมีขนาด 32x32)
-        FXGL.spawn("Bomb", bombPosition);
+        if (bombCount < MAX_BOMBS) {
+            Point2D bombPosition = entity.getCenter().subtract(16, 16); // ปรับตำแหน่งให้ตรงกลาง (สมมติระเบิดมีขนาด
+                                                                        // 32x32)
+            FXGL.spawn("Bomb", bombPosition);
+            bombCount++; // เพิ่มจำนวนระเบิดเมื่อวางระเบิดใหม่
+        }
     }
 
     @Override
@@ -43,53 +50,29 @@ public class ControllerPlayer extends Component{
         physics.setVelocityX(velocityX);
         physics.setVelocityY(velocityY);
 
-        if (FXGLMath.abs(velocityX) < 1) {
-            velocityX = 0;
-        }
-
-        if (FXGLMath.abs(velocityY) < 1) {
-            velocityY = 0;
-        }
-
-        // ✅ จำกัดการเคลื่อนที่ไม่ให้หลุดออกจากหน้าจอ
-        float screenWidth = (float) FXGL.getAppWidth();
-        float screenHeight = (float) FXGL.getAppHeight();
-
-        float newX = FXGLMath.clamp((float) entity.getX(), 0f, screenWidth - (float) entity.getWidth());
-        float newY = FXGLMath.clamp((float) entity.getY(), 0f, screenHeight - (float) entity.getHeight());
-
-        entity.setPosition(newX, newY);
-
+        // ไม่ต้องรีเซ็ต velocityX และ velocityY เป็น 0 ใน onUpdate
     }
 
-
     public void moveLeft() {
-
-        velocityX = -200;
+        velocityX = -SPEED; // ใช้ SPEED ที่กำหนดไว้
         entity.setScaleX(1);
-
         animation.walkLeft();
-
-
     }
 
     public void moveRight() {
-
-        velocityX = 200;
+        velocityX = SPEED; // ใช้ SPEED ที่กำหนดไว้
         entity.setScaleX(1);
         animation.walkRight();
     }
 
     public void moveUp() {
-
-        velocityY = -200;
+        velocityY = -SPEED; // ใช้ SPEED ที่กำหนดไว้
         entity.setScaleX(1);
         animation.walkUp();
     }
 
     public void moveDown() {
-
-        velocityY = 200;
+        velocityY = SPEED; // ใช้ SPEED ที่กำหนดไว้
         entity.setScaleX(1);
         animation.walkDown();
     }
@@ -98,27 +81,22 @@ public class ControllerPlayer extends Component{
         velocityX = 0;
         velocityY = 0;
 
-        if(animation.checkwalk() == "walkUp"){
-
+        if (animation.checkwalk().equals("walkUp")) {
             animation.idleUp();
-
-        }else if (animation.checkwalk() == "walkDown"){
-
+        } else if (animation.checkwalk().equals("walkDown")) {
             animation.idleDown();
-
-        }else if (animation.checkwalk() == "walkRight"){
-
+        } else if (animation.checkwalk().equals("walkRight")) {
             animation.idleRight();
-
-        }else if(animation.checkwalk() == "walkLeft"){
-
+        } else if (animation.checkwalk().equals("walkLeft")) {
             animation.idleLeft();
-        }else{
-
+        } else {
             animation.idleDown();
         }
     }
 
-
+    public static void decrementBombCount() {
+        if (bombCount > 0) {
+            bombCount--;
+        }
+    }
 }
-

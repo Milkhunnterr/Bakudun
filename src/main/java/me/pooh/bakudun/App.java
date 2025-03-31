@@ -38,6 +38,7 @@ public class App extends GameApplication {
         settings.setTitle("BomberMan");
         settings.setVersion("0.1");
         settings.setDeveloperMenuEnabled(true);
+
     }
 
     @Override
@@ -124,7 +125,7 @@ public class App extends GameApplication {
             protected void onActionBegin() {
                 player.getComponent(ControllerPlayer.class).placeBomb();
             }
-        }, KeyCode.E);
+        }, KeyCode.SPACE);
 
     }
 

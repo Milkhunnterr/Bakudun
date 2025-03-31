@@ -1,5 +1,5 @@
 package me.pooh.bakudun.EntityType;
 
 public enum Scene {
-    wall,WALL;
+    wall,wallbreak,walltile;
 }
