@@ -34,22 +34,16 @@ public class ControllerPlayer extends Component{
     }
 
     public void placeBomb() {
-        Point2D bombPosition = entity.getCenter().subtract(16, 16); // ปรับตำแหน่งให้ตรงกลาง (สมมติระเบิดมีขนาด 32x32)
-        FXGL.spawn("Bomb", bombPosition);
+        int tileSize = 32; // ขนาดของช่องตาราง
+        double x = Math.round(entity.getX() / tileSize) * tileSize;
+        double y = Math.round(entity.getY() / tileSize) * tileSize;
+
+        FXGL.spawn("Bomb", new Point2D(x, y));
     }
 
     @Override
     public void onUpdate(double tpf) {
-        physics.setVelocityX(velocityX);
-        physics.setVelocityY(velocityY);
-
-        if (FXGLMath.abs(velocityX) < 1) {
-            velocityX = 0;
-        }
-
-        if (FXGLMath.abs(velocityY) < 1) {
-            velocityY = 0;
-        }
+        physics.setLinearVelocity(velocityX, velocityY);
 
         // ✅ จำกัดการเคลื่อนที่ไม่ให้หลุดออกจากหน้าจอ
         float screenWidth = (float) FXGL.getAppWidth();
@@ -64,32 +58,29 @@ public class ControllerPlayer extends Component{
 
 
     public void moveLeft() {
-
         velocityX = -200;
+        velocityY = 0; // รีเซ็ตค่าแนวตั้ง
         entity.setScaleX(1);
-
         animation.walkLeft();
-
-
     }
 
     public void moveRight() {
-
         velocityX = 200;
+        velocityY = 0; // รีเซ็ตค่าแนวตั้ง
         entity.setScaleX(1);
         animation.walkRight();
     }
 
     public void moveUp() {
-
         velocityY = -200;
+        velocityX = 0; // รีเซ็ตค่าทางแนวนอน
         entity.setScaleX(1);
         animation.walkUp();
     }
 
     public void moveDown() {
-
         velocityY = 200;
+        velocityX = 0; // รีเซ็ตค่าทางแนวนอน
         entity.setScaleX(1);
         animation.walkDown();
     }
@@ -98,24 +89,18 @@ public class ControllerPlayer extends Component{
         velocityX = 0;
         velocityY = 0;
 
-        if(animation.checkwalk() == "walkUp"){
+        String state = animation.checkwalk();
 
+        if ("walkUp".equals(state)) {
             animation.idleUp();
-
-        }else if (animation.checkwalk() == "walkDown"){
-
+        } else if ("walkDown".equals(state)) {
             animation.idleDown();
-
-        }else if (animation.checkwalk() == "walkRight"){
-
+        } else if ("walkRight".equals(state)) {
             animation.idleRight();
-
-        }else if(animation.checkwalk() == "walkLeft"){
-
+        } else if ("walkLeft".equals(state)) {
             animation.idleLeft();
-        }else{
-
-            animation.idleDown();
+        } else {
+            animation.idleDown(); // fallback
         }
     }
 

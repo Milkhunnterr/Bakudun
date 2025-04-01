@@ -23,7 +23,7 @@ public class Character implements EntityFactory {
 
         return FXGL.entityBuilder(data)
                 .type(Player.Jimmu)
-                .bbox(new HitBox(BoundingShape.box(32, 32)))
+                .bbox(new HitBox(BoundingShape.box(28, 28)))
                 .with(physics)
                 .with(new CollidableComponent(true))
                 .with(new ControllerPlayer())
