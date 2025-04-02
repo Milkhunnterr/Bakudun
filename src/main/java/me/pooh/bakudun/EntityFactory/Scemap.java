@@ -279,12 +279,8 @@ public class Scemap implements EntityFactory {
                 .bbox(new HitBox(BoundingShape.box(data.<Integer>get("width"), data.<Integer>get("height"))))
                 .with(physics)
                 .with(new CollidableComponent(true))
-                .with("wallType", wallType);
-
-        if (wallType.equals("WALL39") || wallType.equals("WALL40") ||
-                wallType.equals("WALL47") || wallType.equals("WALL48")) {
-            builder.view("wallbreakas.png");
-        }
+                .with("wallType", wallType)
+                .view("wallbreakas.png");
 
         return builder.build();
     }
