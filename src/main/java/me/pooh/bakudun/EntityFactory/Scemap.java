@@ -273,14 +273,20 @@ public class Scemap implements EntityFactory {
         PhysicsComponent physics = new PhysicsComponent();
         physics.setBodyType(BodyType.STATIC);
 
-        return FXGL.entityBuilder(data)
+        var builder = FXGL.entityBuilder(data)
                 .type(Scene.wallbreak)
                 .at(data.getX(), data.getY())
                 .bbox(new HitBox(BoundingShape.box(data.<Integer>get("width"), data.<Integer>get("height"))))
                 .with(physics)
                 .with(new CollidableComponent(true))
-                .with("wallType", wallType)
-                .build();
+                .with("wallType", wallType);
+
+        if (wallType.equals("WALL39") || wallType.equals("WALL40") ||
+                wallType.equals("WALL47") || wallType.equals("WALL48")) {
+            builder.view("wallbreakas.png");
+        }
+
+        return builder.build();
     }
 
 }
