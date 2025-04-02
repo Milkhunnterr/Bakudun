@@ -1,0 +1,316 @@
+08:20:47.402 [main                     ] DEBUG Logger               - Configured Logger
+08:20:47.421 [main                     ] DEBUG GameApplication      - Logging settings
+Title: BomberMan
+Version: 0.1
+Width: 640
+Height: 480
+Fullscreen: false
+Intro: false
+Profiling: false
+Single step:false
+App Mode: DEVELOPER
+Menu Key: ESCAPE
+Stage Style: DECORATED
+Scene Factory: class com.almasb.fxgl.app.scene.SceneFactory
+
+08:20:47.971 [JavaFX Application Thread] DEBUG FXGLApplication      - Initializing FXGL
+08:20:47.974 [JavaFX Application Thread] INFO  Engine               - FXGL-21.1 (27.03.2024 07.52) on WINDOWS (J:21.0.2 FX:21.0.1)
+08:20:47.974 [JavaFX Application Thread] DEBUG Engine               - JRE Vendor Name: Eclipse Adoptium
+08:20:47.974 [JavaFX Application Thread] DEBUG Engine               - Running on OS: Windows 11 version 10.0
+08:20:47.974 [JavaFX Application Thread] DEBUG Engine               - Architecture: amd64
+08:20:47.975 [JavaFX Application Thread] INFO  Engine               - Source code and latest versions at: https://github.com/AlmasB/FXGL
+08:20:47.975 [JavaFX Application Thread] INFO  Engine               -       Ask questions and discuss at: https://github.com/AlmasB/FXGL/discussions
+08:20:47.975 [JavaFX Application Thread] INFO  Engine               -              Join the FXGL chat at: https://gitter.im/AlmasB/FXGL
+08:20:48.038 [JavaFX Application Thread] DEBUG PrimaryStageWindow   - Creating a JavaFX scene
+08:20:48.074 [JavaFX Application Thread] DEBUG PrimaryStageWindow   - Target settings size: 640.0 x 480.0
+08:20:48.075 [JavaFX Application Thread] DEBUG PrimaryStageWindow   - Scaled scene size:    640.0 x 480.0
+08:20:48.075 [JavaFX Application Thread] DEBUG PrimaryStageWindow   - Scaled ratio: (1.0, 1.0)
+08:20:48.076 [JavaFX Application Thread] DEBUG PrimaryStageWindow   - Set initial scene to FXGLStartupScene
+08:20:48.078 [JavaFX Application Thread] DEBUG PrimaryStageWindow   - Opening main window
+08:20:48.153 [JavaFX Application Thread] DEBUG PrimaryStageWindow   - Window border size: (14.4000244140625, 37.5999755859375)
+08:20:48.154 [JavaFX Application Thread] DEBUG PrimaryStageWindow   - Scaled size: 640.0 x 480.0
+08:20:48.154 [JavaFX Application Thread] DEBUG PrimaryStageWindow   - Scaled ratio: (1.0, 1.0)
+08:20:48.154 [JavaFX Application Thread] DEBUG PrimaryStageWindow   - Scene size: 640.0 x 480.0
+08:20:48.154 [JavaFX Application Thread] DEBUG PrimaryStageWindow   - Stage size: 654.4000244140625 x 517.5999755859375
+08:20:48.160 [FXGL Background Thread 1 ] DEBUG Engine               - Initializing environment variables
+08:20:48.202 [FXGL Background Thread 1 ] DEBUG FXGLAssetLoaderServi - User app class for loading assets: class me.pooh.bakudun.App
+08:20:48.204 [FXGL Background Thread 1 ] DEBUG GameApplicationServi - Applying CSS: fxgl_dark.css
+08:20:48.204 [FXGL Background Thread 1 ] DEBUG FXGLAssetLoaderServi - Loading from file system: jar:file:///C:/Users/POO/.m2/repository/com/github/almasb/fxgl/21.1/fxgl-21.1.jar!/fxglassets/ui/css/fxgl_dark.css
+08:20:48.248 [FXGL Background Thread 1 ] DEBUG GameApplicationServi - Initializing application scenes
+08:20:48.281 [FXGL Background Thread 1 ] DEBUG GameWorld            - Game world initialized
+08:20:48.331 [FXGL Background Thread 1 ] DEBUG PhysicsWorld         - Physics world initialized: appHeight=480, physics.ppm=50.0
+08:20:48.332 [FXGL Background Thread 1 ] DEBUG PhysicsWorld         - Using strategy: BRUTE_FORCE
+08:20:48.337 [FXGL Background Thread 1 ] DEBUG GameScene            - Game scene initialized: 640x480
+08:20:48.350 [FXGL Background Thread 1 ] WARN  FXGL.DefaultMenu     - FXGLDefaultMenu is not designed for resolutions < 800x600
+08:20:48.350 [FXGL Background Thread 1 ] DEBUG FXGL.DefaultMenu     - createMenuBodyGameMenu()
+08:20:48.360 [FXGL Background Thread 1 ] DEBUG FXGL.DefaultMenu     - createOptionsMenu()
+08:20:48.367 [FXGL Background Thread 1 ] DEBUG FXGLAssetLoaderServi - Loading from file system: jar:file:///C:/Users/POO/.m2/repository/com/github/almasb/fxgl/21.1/fxgl-21.1.jar!/fxglassets/textures/particles/smoke.png
+08:20:48.441 [FXGL Background Thread 1 ] DEBUG FXGLAssetLoaderServi - Loading from file system: jar:file:///C:/Users/POO/.m2/repository/com/github/almasb/fxgl/21.1/fxgl-21.1.jar!/fxglassets/textures/particles/trace_horizontal.png
+08:20:48.467 [FXGL Background Thread 1 ] DEBUG GameApplicationServi - Application scenes initialized
+08:20:48.478 [FXGL Background Thread 1 ] DEBUG SystemBundleService  - Loading FXGL system data
+08:20:48.481 [FXGL Background Thread 1 ] DEBUG FileSystemAccess     - Reading from: C:\Users\POO\intellij\Bakudun\system\fxgl.bundle
+08:20:48.488 [FXGL Background Thread 1 ] DEBUG SystemBundleService  - Bundle FXGL: {}
+08:20:48.488 [FXGL Background Thread 1 ] DEBUG UpdaterService       - Checking for updates
+08:20:48.509 [FXGL Background Thread 4 ] DEBUG FXGLApplication      - Loading fonts
+08:20:48.510 [FXGL Background Thread 1 ] DEBUG FXGLApplication      - Loading default localization
+08:20:48.510 [FXGL Background Thread 4 ] DEBUG FXGLAssetLoaderServi - Loading from file system: jar:file:///C:/Users/POO/.m2/repository/com/github/almasb/fxgl/21.1/fxgl-21.1.jar!/fxglassets/ui/fonts/VarelaRound-Regular.ttf
+08:20:48.510 [FXGL Background Thread 1 ] DEBUG FXGLAssetLoaderServi - Loading from file system: jar:file:///C:/Users/POO/.m2/repository/com/github/almasb/fxgl/21.1/fxgl-21.1.jar!/fxglassets/languages/english.lang
+08:20:48.531 [FXGL Background Thread 1 ] INFO  FXGLApplication      - FXGL initialization took: 0.371 sec
+08:20:48.540 [JavaFX Application Thread] DEBUG Input                - Registered new binding: Right - D
+08:20:48.540 [JavaFX Application Thread] DEBUG Input                - Registered new binding: Left - A
+08:20:48.540 [JavaFX Application Thread] DEBUG Input                - Registered new binding: Up - W
+08:20:48.541 [JavaFX Application Thread] DEBUG Input                - Registered new binding: Down - S
+08:20:48.541 [JavaFX Application Thread] DEBUG Input                - Registered new binding: Place Bomb - Space
+08:20:48.541 [JavaFX Application Thread] DEBUG FXGLAssetLoaderServi - Loading from file system: jar:file:///C:/Users/POO/.m2/repository/com/github/almasb/fxgl/21.1/fxgl-21.1.jar!/fxglassets/textures/fxgl_icon.png
+08:20:48.546 [FXGL Background Thread 4 ] DEBUG FXGLAssetLoaderServi - Loading from file system: jar:file:///C:/Users/POO/.m2/repository/com/github/almasb/fxgl/21.1/fxgl-21.1.jar!/fxglassets/ui/fonts/Abel-Regular.ttf
+08:20:48.550 [FXGL Background Thread 4 ] DEBUG FXGLAssetLoaderServi - Loading from file system: jar:file:///C:/Users/POO/.m2/repository/com/github/almasb/fxgl/21.1/fxgl-21.1.jar!/fxglassets/ui/fonts/TerminalLandMono-Regular.otf
+08:20:48.553 [FXGL Background Thread 4 ] DEBUG FXGLAssetLoaderServi - Loading from file system: jar:file:///C:/Users/POO/.m2/repository/com/github/almasb/fxgl/21.1/fxgl-21.1.jar!/fxglassets/ui/fonts/Courier-Prime.ttf
+08:20:48.562 [JavaFX Application Thread] DEBUG FXGLAssetLoaderServi - Loading from file system: jar:file:///C:/Users/POO/.m2/repository/com/github/almasb/fxgl/21.1/fxgl-21.1.jar!/fxglassets/textures/fxgl_default_cursor.png
+08:20:48.565 [JavaFX Application Thread] DEBUG Input                - Registered new binding: Screenshot - CTRL+8
+08:20:48.566 [JavaFX Application Thread] DEBUG Input                - Registered new binding: Dev Options - 1
+08:20:48.567 [JavaFX Application Thread] DEBUG Input                - Registered new binding: Dev Console - 2
+08:20:48.567 [JavaFX Application Thread] DEBUG Input                - Registered new binding: System info dump - CTRL+9
+08:20:48.567 [JavaFX Application Thread] DEBUG Input                - Registered new binding: Restart - CTRL+R
+08:20:48.568 [JavaFX Application Thread] DEBUG Input                - Registered new binding: Toggle Debug Camera - CTRL+7
+08:20:48.572 [JavaFX Application Thread] DEBUG LoopRunner           - Starting loop
+08:20:48.588 [JavaFX Application Thread] DEBUG LoopRunner           - Initializing JavaFX AnimationTimerLoop
+08:20:48.589 [JavaFX Application Thread] DEBUG GameApplicationServi - Starting new game
+08:20:48.589 [JavaFX Application Thread] DEBUG Input                - Clearing active input actions
+08:20:48.598 [JavaFX Application Thread] DEBUG GameApplicationServi - Removing overlay from FXGLStartupScene and adding to FXGLLoadingScene
+08:20:48.602 [JavaFX Application Thread] DEBUG PrimaryStageWindow   - FXGLStartupScene -> FXGLLoadingScene
+08:20:48.602 [JavaFX Application Thread] DEBUG GameApplicationServi - Clearing previous game
+08:20:48.602 [JavaFX Application Thread] DEBUG GameScene            - Clearing game scene
+08:20:48.602 [JavaFX Application Thread] DEBUG GameWorld            - Clearing game world
+08:20:48.602 [JavaFX Application Thread] DEBUG PhysicsWorld         - Clearing physics world
+08:20:48.604 [FXGL Background Thread 4 ] DEBUG FXGLApplication      - Initializing game
+08:20:48.604 [JavaFX Application Thread] DEBUG FXGLApplication      - Registering font factories with UI factory
+08:20:48.660 [FXGL Background Thread 4 ] WARN  TMXLevelLoader       - TiledMap generated from 1.11.2. Supported version: 1.9.0. Some features may not be parsed fully.
+08:20:48.695 [FXGL Background Thread 4 ] DEBUG TMXLevelLoader       - Parsed TiledMap: file:/C:/Users/POO/intellij/Bakudun/target/classes/assets/levels/Map.tmx
+08:20:48.696 [FXGL Background Thread 4 ] DEBUG TMXLevelLoader       - Creating tile layer entities
+08:20:48.699 [FXGL Background Thread 4 ] DEBUG TilesetLoader        - Loading view for layer เลเยอร์ไทล์ 1
+08:20:48.699 [FXGL Background Thread 4 ] DEBUG TilesetLoader        - Created buffer with size 640.0x480.0
+08:20:48.704 [FXGL Background Thread 4 ] WARN  TilesetLoader        - Diagonally flipped tiles are not currently supported
+08:20:48.715 [FXGL Background Thread 4 ] WARN  TilesetLoader        - Diagonally flipped tiles are not currently supported
+08:20:48.726 [FXGL Background Thread 4 ] DEBUG TilesetLoader        - Loading view for layer WALL48
+08:20:48.726 [FXGL Background Thread 4 ] DEBUG TilesetLoader        - Created buffer with size 640.0x480.0
+08:20:48.727 [FXGL Background Thread 4 ] DEBUG TilesetLoader        - Loading view for layer WALL47
+08:20:48.727 [FXGL Background Thread 4 ] DEBUG TilesetLoader        - Created buffer with size 640.0x480.0
+08:20:48.728 [FXGL Background Thread 4 ] DEBUG TilesetLoader        - Loading view for layer WALL46
+08:20:48.728 [FXGL Background Thread 4 ] DEBUG TilesetLoader        - Created buffer with size 640.0x480.0
+08:20:48.728 [FXGL Background Thread 4 ] DEBUG TilesetLoader        - Loading view for layer WALL45
+08:20:48.729 [FXGL Background Thread 4 ] DEBUG TilesetLoader        - Created buffer with size 640.0x480.0
+08:20:48.729 [FXGL Background Thread 4 ] DEBUG TilesetLoader        - Loading view for layer WALL44
+08:20:48.730 [FXGL Background Thread 4 ] DEBUG TilesetLoader        - Created buffer with size 640.0x480.0
+08:20:48.730 [FXGL Background Thread 4 ] DEBUG TilesetLoader        - Loading view for layer WALL43
+08:20:48.731 [FXGL Background Thread 4 ] DEBUG TilesetLoader        - Created buffer with size 640.0x480.0
+08:20:48.731 [FXGL Background Thread 4 ] DEBUG TilesetLoader        - Loading view for layer WALL42
+08:20:48.732 [FXGL Background Thread 4 ] DEBUG TilesetLoader        - Created buffer with size 640.0x480.0
+08:20:48.732 [FXGL Background Thread 4 ] DEBUG TilesetLoader        - Loading view for layer WALL41
+08:20:48.732 [FXGL Background Thread 4 ] DEBUG TilesetLoader        - Created buffer with size 640.0x480.0
+08:20:48.733 [FXGL Background Thread 4 ] DEBUG TilesetLoader        - Loading view for layer WALL40
+08:20:48.740 [FXGL Background Thread 4 ] DEBUG TilesetLoader        - Created buffer with size 640.0x480.0
+08:20:48.741 [FXGL Background Thread 4 ] DEBUG TilesetLoader        - Loading view for layer WALL39
+08:20:48.741 [FXGL Background Thread 4 ] DEBUG TilesetLoader        - Created buffer with size 640.0x480.0
+08:20:48.742 [FXGL Background Thread 4 ] DEBUG TilesetLoader        - Loading view for layer WALL38
+08:20:48.742 [FXGL Background Thread 4 ] DEBUG TilesetLoader        - Created buffer with size 640.0x480.0
+08:20:48.743 [FXGL Background Thread 4 ] DEBUG TilesetLoader        - Loading view for layer WALL37
+08:20:48.743 [FXGL Background Thread 4 ] DEBUG TilesetLoader        - Created buffer with size 640.0x480.0
+08:20:48.743 [FXGL Background Thread 4 ] DEBUG TilesetLoader        - Loading view for layer WALL36
+08:20:48.748 [FXGL Background Thread 4 ] DEBUG TilesetLoader        - Created buffer with size 640.0x480.0
+08:20:48.750 [FXGL Background Thread 4 ] DEBUG TilesetLoader        - Loading view for layer WALL35
+08:20:48.750 [FXGL Background Thread 4 ] DEBUG TilesetLoader        - Created buffer with size 640.0x480.0
+08:20:48.751 [FXGL Background Thread 4 ] DEBUG TilesetLoader        - Loading view for layer WALL34
+08:20:48.751 [FXGL Background Thread 4 ] DEBUG TilesetLoader        - Created buffer with size 640.0x480.0
+08:20:48.752 [FXGL Background Thread 4 ] DEBUG TilesetLoader        - Loading view for layer WALL33
+08:20:48.754 [FXGL Background Thread 4 ] DEBUG TilesetLoader        - Created buffer with size 640.0x480.0
+08:20:48.755 [FXGL Background Thread 4 ] DEBUG TilesetLoader        - Loading view for layer WALL32
+08:20:48.755 [FXGL Background Thread 4 ] DEBUG TilesetLoader        - Created buffer with size 640.0x480.0
+08:20:48.756 [FXGL Background Thread 4 ] DEBUG TilesetLoader        - Loading view for layer WALL31
+08:20:48.756 [FXGL Background Thread 4 ] DEBUG TilesetLoader        - Created buffer with size 640.0x480.0
+08:20:48.757 [FXGL Background Thread 4 ] DEBUG TilesetLoader        - Loading view for layer WALL30
+08:20:48.759 [FXGL Background Thread 4 ] DEBUG TilesetLoader        - Created buffer with size 640.0x480.0
+08:20:48.760 [FXGL Background Thread 4 ] DEBUG TilesetLoader        - Loading view for layer WALL29
+08:20:48.760 [FXGL Background Thread 4 ] DEBUG TilesetLoader        - Created buffer with size 640.0x480.0
+08:20:48.761 [FXGL Background Thread 4 ] DEBUG TilesetLoader        - Loading view for layer WALL28
+08:20:48.761 [FXGL Background Thread 4 ] DEBUG TilesetLoader        - Created buffer with size 640.0x480.0
+08:20:48.762 [FXGL Background Thread 4 ] DEBUG TilesetLoader        - Loading view for layer WALL27
+08:20:48.762 [FXGL Background Thread 4 ] DEBUG TilesetLoader        - Created buffer with size 640.0x480.0
+08:20:48.762 [FXGL Background Thread 4 ] DEBUG TilesetLoader        - Loading view for layer WALL26
+08:20:48.763 [FXGL Background Thread 4 ] DEBUG TilesetLoader        - Created buffer with size 640.0x480.0
+08:20:48.763 [FXGL Background Thread 4 ] DEBUG TilesetLoader        - Loading view for layer WALL25
+08:20:48.764 [FXGL Background Thread 4 ] DEBUG TilesetLoader        - Created buffer with size 640.0x480.0
+08:20:48.764 [FXGL Background Thread 4 ] DEBUG TilesetLoader        - Loading view for layer WALL24
+08:20:48.764 [FXGL Background Thread 4 ] DEBUG TilesetLoader        - Created buffer with size 640.0x480.0
+08:20:48.766 [FXGL Background Thread 4 ] DEBUG TilesetLoader        - Loading view for layer WALL23
+08:20:48.767 [FXGL Background Thread 4 ] DEBUG TilesetLoader        - Created buffer with size 640.0x480.0
+08:20:48.768 [FXGL Background Thread 4 ] DEBUG TilesetLoader        - Loading view for layer WALL22
+08:20:48.769 [FXGL Background Thread 4 ] DEBUG TilesetLoader        - Created buffer with size 640.0x480.0
+08:20:48.769 [FXGL Background Thread 4 ] DEBUG TilesetLoader        - Loading view for layer WALL21
+08:20:48.770 [FXGL Background Thread 4 ] DEBUG TilesetLoader        - Created buffer with size 640.0x480.0
+08:20:48.770 [FXGL Background Thread 4 ] DEBUG TilesetLoader        - Loading view for layer WALL20
+08:20:48.771 [FXGL Background Thread 4 ] DEBUG TilesetLoader        - Created buffer with size 640.0x480.0
+08:20:48.771 [FXGL Background Thread 4 ] DEBUG TilesetLoader        - Loading view for layer WALL19
+08:20:48.772 [FXGL Background Thread 4 ] DEBUG TilesetLoader        - Created buffer with size 640.0x480.0
+08:20:48.772 [FXGL Background Thread 4 ] DEBUG TilesetLoader        - Loading view for layer WALL18
+08:20:48.773 [FXGL Background Thread 4 ] DEBUG TilesetLoader        - Created buffer with size 640.0x480.0
+08:20:48.773 [FXGL Background Thread 4 ] DEBUG TilesetLoader        - Loading view for layer WALL17
+08:20:48.774 [FXGL Background Thread 4 ] DEBUG TilesetLoader        - Created buffer with size 640.0x480.0
+08:20:48.774 [FXGL Background Thread 4 ] DEBUG TilesetLoader        - Loading view for layer WALL16
+08:20:48.774 [FXGL Background Thread 4 ] DEBUG TilesetLoader        - Created buffer with size 640.0x480.0
+08:20:48.775 [FXGL Background Thread 4 ] DEBUG TilesetLoader        - Loading view for layer WALL15
+08:20:48.775 [FXGL Background Thread 4 ] DEBUG TilesetLoader        - Created buffer with size 640.0x480.0
+08:20:48.776 [FXGL Background Thread 4 ] DEBUG TilesetLoader        - Loading view for layer WALL14
+08:20:48.776 [FXGL Background Thread 4 ] DEBUG TilesetLoader        - Created buffer with size 640.0x480.0
+08:20:48.777 [FXGL Background Thread 4 ] DEBUG TilesetLoader        - Loading view for layer WALL13
+08:20:48.777 [FXGL Background Thread 4 ] DEBUG TilesetLoader        - Created buffer with size 640.0x480.0
+08:20:48.778 [FXGL Background Thread 4 ] DEBUG TilesetLoader        - Loading view for layer WALL12
+08:20:48.778 [FXGL Background Thread 4 ] DEBUG TilesetLoader        - Created buffer with size 640.0x480.0
+08:20:48.779 [FXGL Background Thread 4 ] DEBUG TilesetLoader        - Loading view for layer WALL11
+08:20:48.779 [FXGL Background Thread 4 ] DEBUG TilesetLoader        - Created buffer with size 640.0x480.0
+08:20:48.780 [FXGL Background Thread 4 ] DEBUG TilesetLoader        - Loading view for layer WALL10
+08:20:48.780 [FXGL Background Thread 4 ] DEBUG TilesetLoader        - Created buffer with size 640.0x480.0
+08:20:48.780 [FXGL Background Thread 4 ] DEBUG TilesetLoader        - Loading view for layer WALL9
+08:20:48.781 [FXGL Background Thread 4 ] DEBUG TilesetLoader        - Created buffer with size 640.0x480.0
+08:20:48.781 [FXGL Background Thread 4 ] DEBUG TilesetLoader        - Loading view for layer WALL8
+08:20:48.782 [FXGL Background Thread 4 ] DEBUG TilesetLoader        - Created buffer with size 640.0x480.0
+08:20:48.782 [FXGL Background Thread 4 ] DEBUG TilesetLoader        - Loading view for layer WALL7
+08:20:48.783 [FXGL Background Thread 4 ] DEBUG TilesetLoader        - Created buffer with size 640.0x480.0
+08:20:48.783 [FXGL Background Thread 4 ] DEBUG TilesetLoader        - Loading view for layer WALL6
+08:20:48.783 [FXGL Background Thread 4 ] DEBUG TilesetLoader        - Created buffer with size 640.0x480.0
+08:20:48.784 [FXGL Background Thread 4 ] DEBUG TilesetLoader        - Loading view for layer WALL5
+08:20:48.784 [FXGL Background Thread 4 ] DEBUG TilesetLoader        - Created buffer with size 640.0x480.0
+08:20:48.784 [FXGL Background Thread 4 ] DEBUG TilesetLoader        - Loading view for layer WALL4
+08:20:48.785 [FXGL Background Thread 4 ] DEBUG TilesetLoader        - Created buffer with size 640.0x480.0
+08:20:48.785 [FXGL Background Thread 4 ] DEBUG TilesetLoader        - Loading view for layer WALL3
+08:20:48.785 [FXGL Background Thread 4 ] DEBUG TilesetLoader        - Created buffer with size 640.0x480.0
+08:20:48.786 [FXGL Background Thread 4 ] DEBUG TilesetLoader        - Loading view for layer WALL2
+08:20:48.786 [FXGL Background Thread 4 ] DEBUG TilesetLoader        - Created buffer with size 640.0x480.0
+08:20:48.786 [FXGL Background Thread 4 ] DEBUG TilesetLoader        - Loading view for layer WALL1
+08:20:48.787 [FXGL Background Thread 4 ] DEBUG TilesetLoader        - Created buffer with size 640.0x480.0
+08:20:48.787 [FXGL Background Thread 4 ] DEBUG TilesetLoader        - Loading view for layer เลเยอร์ไทล์ 2
+08:20:48.787 [FXGL Background Thread 4 ] DEBUG TilesetLoader        - Created buffer with size 640.0x480.0
+08:20:48.788 [FXGL Background Thread 4 ] DEBUG TilesetLoader        - Loading view for layer เลเยอร์ไทล์ 3
+08:20:48.788 [FXGL Background Thread 4 ] DEBUG TilesetLoader        - Created buffer with size 640.0x480.0
+08:20:48.788 [FXGL Background Thread 4 ] DEBUG TMXLevelLoader       - Creating object layer entities
+08:20:48.813 [FXGL Background Thread 4 ] DEBUG FXGLAssetLoaderServi - Loading from file system: file:/C:/Users/POO/intellij/Bakudun/target/classes/assets/textures/Jim2.png
+08:20:48.845 [FXGL Background Thread 4 ] WARN  TMXLevelLoader       - TiledMap generated from 1.11.2. Supported version: 1.9.0. Some features may not be parsed fully.
+08:20:48.865 [FXGL Background Thread 4 ] DEBUG TMXLevelLoader       - Parsed TiledMap: file:/C:/Users/POO/intellij/Bakudun/target/classes/assets/levels/Map.tmx
+08:20:48.865 [FXGL Background Thread 4 ] DEBUG TMXLevelLoader       - Creating tile layer entities
+08:20:48.866 [FXGL Background Thread 4 ] DEBUG TilesetLoader        - Loading view for layer เลเยอร์ไทล์ 1
+08:20:48.866 [FXGL Background Thread 4 ] DEBUG TilesetLoader        - Created buffer with size 640.0x480.0
+08:20:48.870 [FXGL Background Thread 4 ] WARN  TilesetLoader        - Diagonally flipped tiles are not currently supported
+08:20:48.881 [FXGL Background Thread 4 ] WARN  TilesetLoader        - Diagonally flipped tiles are not currently supported
+08:20:48.889 [FXGL Background Thread 4 ] DEBUG TilesetLoader        - Loading view for layer WALL48
+08:20:48.890 [FXGL Background Thread 4 ] DEBUG TilesetLoader        - Created buffer with size 640.0x480.0
+08:20:48.891 [FXGL Background Thread 4 ] DEBUG TilesetLoader        - Loading view for layer WALL47
+08:20:48.892 [FXGL Background Thread 4 ] DEBUG TilesetLoader        - Created buffer with size 640.0x480.0
+08:20:48.893 [FXGL Background Thread 4 ] DEBUG TilesetLoader        - Loading view for layer WALL46
+08:20:48.893 [FXGL Background Thread 4 ] DEBUG TilesetLoader        - Created buffer with size 640.0x480.0
+08:20:48.894 [FXGL Background Thread 4 ] DEBUG TilesetLoader        - Loading view for layer WALL45
+08:20:48.894 [FXGL Background Thread 4 ] DEBUG TilesetLoader        - Created buffer with size 640.0x480.0
+08:20:48.895 [FXGL Background Thread 4 ] DEBUG TilesetLoader        - Loading view for layer WALL44
+08:20:48.895 [FXGL Background Thread 4 ] DEBUG TilesetLoader        - Created buffer with size 640.0x480.0
+08:20:48.895 [FXGL Background Thread 4 ] DEBUG TilesetLoader        - Loading view for layer WALL43
+08:20:48.896 [FXGL Background Thread 4 ] DEBUG TilesetLoader        - Created buffer with size 640.0x480.0
+08:20:48.896 [FXGL Background Thread 4 ] DEBUG TilesetLoader        - Loading view for layer WALL42
+08:20:48.897 [FXGL Background Thread 4 ] DEBUG TilesetLoader        - Created buffer with size 640.0x480.0
+08:20:48.897 [FXGL Background Thread 4 ] DEBUG TilesetLoader        - Loading view for layer WALL41
+08:20:48.898 [FXGL Background Thread 4 ] DEBUG TilesetLoader        - Created buffer with size 640.0x480.0
+08:20:48.898 [FXGL Background Thread 4 ] DEBUG TilesetLoader        - Loading view for layer WALL40
+08:20:48.899 [FXGL Background Thread 4 ] DEBUG TilesetLoader        - Created buffer with size 640.0x480.0
+08:20:48.899 [FXGL Background Thread 4 ] DEBUG TilesetLoader        - Loading view for layer WALL39
+08:20:48.900 [FXGL Background Thread 4 ] DEBUG TilesetLoader        - Created buffer with size 640.0x480.0
+08:20:48.900 [FXGL Background Thread 4 ] DEBUG TilesetLoader        - Loading view for layer WALL38
+08:20:48.901 [FXGL Background Thread 4 ] DEBUG TilesetLoader        - Created buffer with size 640.0x480.0
+08:20:48.901 [FXGL Background Thread 4 ] DEBUG TilesetLoader        - Loading view for layer WALL37
+08:20:48.901 [FXGL Background Thread 4 ] DEBUG TilesetLoader        - Created buffer with size 640.0x480.0
+08:20:48.902 [FXGL Background Thread 4 ] DEBUG TilesetLoader        - Loading view for layer WALL36
+08:20:48.902 [FXGL Background Thread 4 ] DEBUG TilesetLoader        - Created buffer with size 640.0x480.0
+08:20:48.903 [FXGL Background Thread 4 ] DEBUG TilesetLoader        - Loading view for layer WALL35
+08:20:48.903 [FXGL Background Thread 4 ] DEBUG TilesetLoader        - Created buffer with size 640.0x480.0
+08:20:48.904 [FXGL Background Thread 4 ] DEBUG TilesetLoader        - Loading view for layer WALL34
+08:20:48.904 [FXGL Background Thread 4 ] DEBUG TilesetLoader        - Created buffer with size 640.0x480.0
+08:20:48.905 [FXGL Background Thread 4 ] DEBUG TilesetLoader        - Loading view for layer WALL33
+08:20:48.906 [FXGL Background Thread 4 ] DEBUG TilesetLoader        - Created buffer with size 640.0x480.0
+08:20:48.906 [FXGL Background Thread 4 ] DEBUG TilesetLoader        - Loading view for layer WALL32
+08:20:48.907 [FXGL Background Thread 4 ] DEBUG TilesetLoader        - Created buffer with size 640.0x480.0
+08:20:48.907 [FXGL Background Thread 4 ] DEBUG TilesetLoader        - Loading view for layer WALL31
+08:20:48.908 [FXGL Background Thread 4 ] DEBUG TilesetLoader        - Created buffer with size 640.0x480.0
+08:20:48.908 [FXGL Background Thread 4 ] DEBUG TilesetLoader        - Loading view for layer WALL30
+08:20:48.909 [FXGL Background Thread 4 ] DEBUG TilesetLoader        - Created buffer with size 640.0x480.0
+08:20:48.909 [FXGL Background Thread 4 ] DEBUG TilesetLoader        - Loading view for layer WALL29
+08:20:48.909 [FXGL Background Thread 4 ] DEBUG TilesetLoader        - Created buffer with size 640.0x480.0
+08:20:48.910 [FXGL Background Thread 4 ] DEBUG TilesetLoader        - Loading view for layer WALL28
+08:20:48.910 [FXGL Background Thread 4 ] DEBUG TilesetLoader        - Created buffer with size 640.0x480.0
+08:20:48.911 [FXGL Background Thread 4 ] DEBUG TilesetLoader        - Loading view for layer WALL27
+08:20:48.911 [FXGL Background Thread 4 ] DEBUG TilesetLoader        - Created buffer with size 640.0x480.0
+08:20:48.911 [FXGL Background Thread 4 ] DEBUG TilesetLoader        - Loading view for layer WALL26
+08:20:48.912 [FXGL Background Thread 4 ] DEBUG TilesetLoader        - Created buffer with size 640.0x480.0
+08:20:48.912 [FXGL Background Thread 4 ] DEBUG TilesetLoader        - Loading view for layer WALL25
+08:20:48.912 [FXGL Background Thread 4 ] DEBUG TilesetLoader        - Created buffer with size 640.0x480.0
+08:20:48.912 [FXGL Background Thread 4 ] DEBUG TilesetLoader        - Loading view for layer WALL24
+08:20:48.913 [FXGL Background Thread 4 ] DEBUG TilesetLoader        - Created buffer with size 640.0x480.0
+08:20:48.913 [FXGL Background Thread 4 ] DEBUG TilesetLoader        - Loading view for layer WALL23
+08:20:48.913 [FXGL Background Thread 4 ] DEBUG TilesetLoader        - Created buffer with size 640.0x480.0
+08:20:48.914 [FXGL Background Thread 4 ] DEBUG TilesetLoader        - Loading view for layer WALL22
+08:20:48.914 [FXGL Background Thread 4 ] DEBUG TilesetLoader        - Created buffer with size 640.0x480.0
+08:20:48.914 [FXGL Background Thread 4 ] DEBUG TilesetLoader        - Loading view for layer WALL21
+08:20:48.915 [FXGL Background Thread 4 ] DEBUG TilesetLoader        - Created buffer with size 640.0x480.0
+08:20:48.915 [FXGL Background Thread 4 ] DEBUG TilesetLoader        - Loading view for layer WALL20
+08:20:48.915 [FXGL Background Thread 4 ] DEBUG TilesetLoader        - Created buffer with size 640.0x480.0
+08:20:48.916 [FXGL Background Thread 4 ] DEBUG TilesetLoader        - Loading view for layer WALL19
+08:20:48.916 [FXGL Background Thread 4 ] DEBUG TilesetLoader        - Created buffer with size 640.0x480.0
+08:20:48.916 [FXGL Background Thread 4 ] DEBUG TilesetLoader        - Loading view for layer WALL18
+08:20:48.917 [FXGL Background Thread 4 ] DEBUG TilesetLoader        - Created buffer with size 640.0x480.0
+08:20:48.917 [FXGL Background Thread 4 ] DEBUG TilesetLoader        - Loading view for layer WALL17
+08:20:48.918 [FXGL Background Thread 4 ] DEBUG TilesetLoader        - Created buffer with size 640.0x480.0
+08:20:48.918 [FXGL Background Thread 4 ] DEBUG TilesetLoader        - Loading view for layer WALL16
+08:20:48.918 [FXGL Background Thread 4 ] DEBUG TilesetLoader        - Created buffer with size 640.0x480.0
+08:20:48.919 [FXGL Background Thread 4 ] DEBUG TilesetLoader        - Loading view for layer WALL15
+08:20:48.920 [FXGL Background Thread 4 ] DEBUG TilesetLoader        - Created buffer with size 640.0x480.0
+08:20:48.920 [FXGL Background Thread 4 ] DEBUG TilesetLoader        - Loading view for layer WALL14
+08:20:48.921 [FXGL Background Thread 4 ] DEBUG TilesetLoader        - Created buffer with size 640.0x480.0
+08:20:48.921 [FXGL Background Thread 4 ] DEBUG TilesetLoader        - Loading view for layer WALL13
+08:20:48.921 [FXGL Background Thread 4 ] DEBUG TilesetLoader        - Created buffer with size 640.0x480.0
+08:20:48.922 [FXGL Background Thread 4 ] DEBUG TilesetLoader        - Loading view for layer WALL12
+08:20:48.922 [FXGL Background Thread 4 ] DEBUG TilesetLoader        - Created buffer with size 640.0x480.0
+08:20:48.923 [FXGL Background Thread 4 ] DEBUG TilesetLoader        - Loading view for layer WALL11
+08:20:48.923 [FXGL Background Thread 4 ] DEBUG TilesetLoader        - Created buffer with size 640.0x480.0
+08:20:48.923 [FXGL Background Thread 4 ] DEBUG TilesetLoader        - Loading view for layer WALL10
+08:20:48.924 [FXGL Background Thread 4 ] DEBUG TilesetLoader        - Created buffer with size 640.0x480.0
+08:20:48.924 [FXGL Background Thread 4 ] DEBUG TilesetLoader        - Loading view for layer WALL9
+08:20:48.924 [FXGL Background Thread 4 ] DEBUG TilesetLoader        - Created buffer with size 640.0x480.0
+08:20:48.925 [FXGL Background Thread 4 ] DEBUG TilesetLoader        - Loading view for layer WALL8
+08:20:48.928 [FXGL Background Thread 4 ] DEBUG TilesetLoader        - Created buffer with size 640.0x480.0
+08:20:48.929 [FXGL Background Thread 4 ] DEBUG TilesetLoader        - Loading view for layer WALL7
+08:20:48.929 [FXGL Background Thread 4 ] DEBUG TilesetLoader        - Created buffer with size 640.0x480.0
+08:20:48.929 [FXGL Background Thread 4 ] DEBUG TilesetLoader        - Loading view for layer WALL6
+08:20:48.929 [FXGL Background Thread 4 ] DEBUG TilesetLoader        - Created buffer with size 640.0x480.0
+08:20:48.929 [FXGL Background Thread 4 ] DEBUG TilesetLoader        - Loading view for layer WALL5
+08:20:48.929 [FXGL Background Thread 4 ] DEBUG TilesetLoader        - Created buffer with size 640.0x480.0
+08:20:48.930 [FXGL Background Thread 4 ] DEBUG TilesetLoader        - Loading view for layer WALL4
+08:20:48.930 [FXGL Background Thread 4 ] DEBUG TilesetLoader        - Created buffer with size 640.0x480.0
+08:20:48.930 [FXGL Background Thread 4 ] DEBUG TilesetLoader        - Loading view for layer WALL3
+08:20:48.931 [FXGL Background Thread 4 ] DEBUG TilesetLoader        - Created buffer with size 640.0x480.0
+08:20:48.931 [FXGL Background Thread 4 ] DEBUG TilesetLoader        - Loading view for layer WALL2
+08:20:48.931 [FXGL Background Thread 4 ] DEBUG TilesetLoader        - Created buffer with size 640.0x480.0
+08:20:48.932 [FXGL Background Thread 4 ] DEBUG TilesetLoader        - Loading view for layer WALL1
+08:20:48.932 [FXGL Background Thread 4 ] DEBUG TilesetLoader        - Created buffer with size 640.0x480.0
+08:20:48.932 [FXGL Background Thread 4 ] DEBUG TilesetLoader        - Loading view for layer เลเยอร์ไทล์ 2
+08:20:48.932 [FXGL Background Thread 4 ] DEBUG TilesetLoader        - Created buffer with size 640.0x480.0
+08:20:48.933 [FXGL Background Thread 4 ] DEBUG TilesetLoader        - Loading view for layer เลเยอร์ไทล์ 3
+08:20:48.933 [FXGL Background Thread 4 ] DEBUG TilesetLoader        - Created buffer with size 640.0x480.0
+08:20:48.933 [FXGL Background Thread 4 ] DEBUG TMXLevelLoader       - Creating object layer entities
+08:20:48.952 [FXGL Background Thread 4 ] DEBUG GameWorld            - Clearing removable entities
+08:20:48.953 [FXGL Background Thread 4 ] DEBUG GameWorld            - Setting level: com.almasb.fxgl.entity.level.Level@1877d45c
+08:20:48.963 [FXGL Background Thread 4 ] INFO  FXGLApplication      - Game initialization took: 0.360 sec
+08:20:49.028 [JavaFX Application Thread] DEBUG Input                - Clearing active input actions
+08:20:49.039 [JavaFX Application Thread] DEBUG GameApplicationServi - Removing overlay from FXGLLoadingScene and adding to GameScene
+08:20:49.043 [JavaFX Application Thread] DEBUG PrimaryStageWindow   - FXGLLoadingScene -> GameScene
+08:20:51.413 [JavaFX Application Thread] DEBUG FXGLApplication      - Exiting FXGL
+08:20:51.413 [JavaFX Application Thread] DEBUG LoopRunner           - Stopping loop
+08:20:51.413 [JavaFX Application Thread] DEBUG SystemBundleService  - Saving FXGL system data
+08:20:51.416 [JavaFX Application Thread] DEBUG FileSystemAccess     - Writing to: C:\Users\POO\intellij\Bakudun\system\fxgl.bundle
+08:20:51.417 [JavaFX Application Thread] DEBUG Async                - Shutting down background threads
+08:20:51.417 [JavaFX Application Thread] DEBUG PrimaryStageWindow   - Closing main window
+08:20:51.431 [JavaFX Application Thread] DEBUG Logger               - Closing Logger
