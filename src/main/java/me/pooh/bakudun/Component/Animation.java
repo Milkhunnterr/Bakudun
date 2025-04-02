@@ -12,59 +12,26 @@ public class Animation extends Component {
 
     private String currentAnimationState = "idleDown";
     private final AnimatedTexture texture;
-    private final AnimationChannel left;
-    private final AnimationChannel right;
-    private final AnimationChannel up;
-    private final AnimationChannel down;
-    private final AnimationChannel idleDown;
-    private final AnimationChannel idleRight;
-    private final AnimationChannel idleUp;
-    private final AnimationChannel idleLeft;
+    private final AnimationChannel left, right, up, down;
+    private final AnimationChannel idleDown, idleRight, idleUp, idleLeft;
 
     public Animation (String nameFile) {
-
         Image image = FXGL.image(nameFile);
 
         int columns = 4;
         int rows = 4;
-
         int frameW = (int) image.getWidth() / columns;
         int frameH = (int) image.getHeight() / rows;
 
-        // คำนวณ index แบบ Column-Major Order
-        int leftStart  = (1 * columns) + 2;  // Row 1, Column 2
-        int leftEnd    = (1 * columns) + 3;  // Row 1, Column 3
+        left = new AnimationChannel(image, columns, frameW, frameH, Duration.seconds(0.75), 6, 7);
+        right = new AnimationChannel(image, columns, frameW, frameH, Duration.seconds(0.75), 2, 3);
+        up = new AnimationChannel(image, columns, frameW, frameH, Duration.seconds(0.75), 10, 11);
+        down = new AnimationChannel(image, columns, frameW, frameH, Duration.seconds(0.75), 14, 15);
 
-        int rightStart = (0 * columns) + 2;  // Row 0, Column 2
-        int rightEnd   = (0 * columns) + 3;  // Row 0, Column 3
-
-        int upStart    = (3 * columns) + 2;  // Row 3, Column 2
-        int upEnd      = (3 * columns) + 3;  // Row 3, Column 3
-
-        int downStart  = (2 * columns) + 2;  // Row 2, Column 2
-        int downEnd    = (2 * columns) + 3;  // Row 2, Column 3
-
-        int Down      = (2 * columns) + 0;  // Row 2, Column 0
-        int DownEnd   = (2 * columns) + 1;  // Row 2, Column 1
-
-        int Up        = (3 * columns) + 0;  // Row 3, Column 0
-        int UpEnd     = (3 * columns) + 1;  // Row 3, Column 1
-
-        int Right     = (0 * columns) + 0;  // Row 0, Column 0
-        int RightEnd  = (0 * columns) + 1;  // Row 0, Column 1
-
-        int Left      = (1 * columns) + 0;  // Row 1, Column 0
-        int LeftEnd   = (1 * columns) + 1;  // Row 1, Column 1
-
-        left = new AnimationChannel(image, columns, frameW, frameH, Duration.seconds(0.75), leftStart, leftEnd);
-        right = new AnimationChannel(image, columns, frameW, frameH, Duration.seconds(0.75), rightStart, rightEnd);
-        up = new AnimationChannel(image, columns, frameW, frameH, Duration.seconds(0.75), upStart, upEnd);
-        down = new AnimationChannel(image, columns, frameW, frameH, Duration.seconds(0.75), downStart, downEnd);
-
-        idleDown = new AnimationChannel(image, columns, frameW, frameH, Duration.seconds(0.75), Down, Down);
-        idleUp = new AnimationChannel(image, columns, frameW, frameH, Duration.seconds(0.75), Up, Up);
-        idleRight = new AnimationChannel(image, columns, frameW, frameH, Duration.seconds(0.75), Right, Right);
-        idleLeft = new AnimationChannel(image, columns, frameW, frameH, Duration.seconds(0.75), Left, Left);
+        idleDown = new AnimationChannel(image, columns, frameW, frameH, Duration.seconds(0.75), 12, 12);
+        idleUp = new AnimationChannel(image, columns, frameW, frameH, Duration.seconds(0.75), 8, 8);
+        idleRight = new AnimationChannel(image, columns, frameW, frameH, Duration.seconds(0.75), 0, 0);
+        idleLeft = new AnimationChannel(image, columns, frameW, frameH, Duration.seconds(0.75), 4, 4);
 
         texture = new AnimatedTexture(idleDown);
         texture.loopAnimationChannel(idleDown);
@@ -75,35 +42,31 @@ public class Animation extends Component {
     }
 
     public void walkUp() {
-        if (texture.getAnimationChannel() != up) {
-            texture.playAnimationChannel(up);
+        if (!currentAnimationState.equals("walkUp")) {
             texture.loopAnimationChannel(up);
+            currentAnimationState = "walkUp";
         }
-        currentAnimationState = "walkUp";
     }
 
     public void walkDown() {
-        if (texture.getAnimationChannel() != down) {
-            texture.playAnimationChannel(down);
+        if (!currentAnimationState.equals("walkDown")) {
             texture.loopAnimationChannel(down);
+            currentAnimationState = "walkDown";
         }
-        currentAnimationState = "walkDown";
     }
 
     public void walkLeft() {
-        if (texture.getAnimationChannel() != left) {
-            texture.playAnimationChannel(left);
+        if (!currentAnimationState.equals("walkLeft")) {
             texture.loopAnimationChannel(left);
+            currentAnimationState = "walkLeft";
         }
-        currentAnimationState = "walkLeft";
     }
 
     public void walkRight() {
-        if (texture.getAnimationChannel() != right) {
-            texture.playAnimationChannel(right);
+        if (!currentAnimationState.equals("walkRight")) {
             texture.loopAnimationChannel(right);
+            currentAnimationState = "walkRight";
         }
-        currentAnimationState = "walkRight";
     }
 
     public String checkwalk() {
@@ -111,17 +74,30 @@ public class Animation extends Component {
     }
 
     public void idleDown() {
-        texture.loopAnimationChannel(idleDown);
+        if (!currentAnimationState.equals("idleDown")) {
+            texture.loopAnimationChannel(idleDown);
+            currentAnimationState = "idleDown";
+        }
     }
+
     public void idleUp() {
-        texture.loopAnimationChannel(idleUp);
+        if (!currentAnimationState.equals("idleUp")) {
+            texture.loopAnimationChannel(idleUp);
+            currentAnimationState = "idleUp";
+        }
     }
 
     public void idleRight() {
-        texture.loopAnimationChannel(idleRight);
+        if (!currentAnimationState.equals("idleRight")) {
+            texture.loopAnimationChannel(idleRight);
+            currentAnimationState = "idleRight";
+        }
     }
 
     public void idleLeft() {
-        texture.loopAnimationChannel(idleLeft);
+        if (!currentAnimationState.equals("idleLeft")) {
+            texture.loopAnimationChannel(idleLeft);
+            currentAnimationState = "idleLeft";
+        }
     }
 }
